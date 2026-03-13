@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+@theme {
+  --font-sans: var(--font-outfit), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-serif: var(--font-playfair), ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
+
+  /* Focus Colors: Red & Brown */
+  --color-heritage-red: #6B100F;
+  --color-heritage-brown: #67381F;
+  --color-heritage-gold: #C5923B;
+  
+  --color-background: #0C0C0C; /* Deep Luxury Charcoal/Black */
+  --color-foreground: #F5F5F5;
+  --color-card: #141414;
+  --color-card-foreground: #F5F5F5;
+  --color-popover: #141414;
+  --color-popover-foreground: #F5F5F5;
+  --color-primary: #6B100F; /* Heritage Red as Primary for a Bold Professional Look */
+  --color-primary-foreground: #F5F5F5;
+  --color-secondary: #67381F; /* Heritage Brown as Secondary */
+  --color-secondary-foreground: #F5F5F5;
+  --color-muted: #262626;
+  --color-muted-foreground: #A1A1A1;
+  --color-accent: #C5923B; /* Gold remains for subtle detail */
+  --color-accent-foreground: #0C0C0C;
+  --color-destructive: #6B100F;
+  --color-destructive-foreground: #F5F5F5;
+  --color-border: #1F1F1F;
+  --color-input: #1F1F1F;
+  --color-ring: #6B100F;
+  
+  --radius-xl: 1rem;
+  --radius-2xl: 1.5rem;
+  --radius-3xl: 2rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif tracking-tight;
+  }
+}
+
+/* Custom Utilities */
+.glass {
+  @apply bg-background/80 backdrop-blur-md border border-white/5;
+}
+
+.gold-gradient {
+  background: linear-gradient(135deg, var(--color-heritage-gold) 0%, #ecd4a1 50%, var(--color-heritage-gold) 100%);
+}
+
+.text-gold {
+  @apply bg-clip-text text-transparent;
+  background-image: linear-gradient(135deg, var(--color-heritage-gold) 0%, #ecd4a1 50%, var(--color-heritage-gold) 100%);
+}
+
+.red-gradient {
+  background: linear-gradient(135deg, var(--color-heritage-red) 0%, #a81c1a 100%);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out forwards;
+}
